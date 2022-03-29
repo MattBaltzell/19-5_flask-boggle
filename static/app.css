@@ -1,0 +1,136 @@
+:root{
+    --color-dk: rgb(48, 48, 63);
+}
+
+*,*::before,*::after {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    color: var(--color-dk);
+}
+
+html{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+background-color: rgb(255, 170, 0);
+    
+}
+
+.content{
+    padding: 2.4rem;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1{
+    margin-bottom: 2rem;
+    font-size: 3.6rem;
+
+}
+
+#form {
+    display:flex;
+    flex-direction: row;
+    gap: .6rem;
+}
+
+form input, .btn{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    border: 2.75px solid #fff;
+    display: inline-block;
+}
+
+form input{
+    padding: .3rem .5rem;
+    background-color: transparent;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    width: 22ch;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+form input::placeholder{color:rgba(255, 255, 255, 0.7);}
+
+.btn{
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 1.05rem;
+    padding: .4rem 1.2rem;
+    text-decoration: none;
+    transition: all .25s;
+}
+
+.btn:hover{
+    background-color: var(--color-dk);
+    color:#fff;
+    border-color: var(--color-dk);
+}
+
+#board{
+    border: 4px solid #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    border-collapse: separate; 
+    border-spacing: 8px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+td{
+    font-weight: 700;
+    font-size: 2rem;
+    text-align: center;
+    padding: .4rem;
+    background-color: #fff;
+    width: 3ch;
+    height: 3ch;
+    border-radius: 100px;
+    
+}
+
+#feedback{
+    background-color: #fff;
+    color: rgb(16, 180, 11);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    opacity:0;
+}
+
+#feedback.red{
+    background-color: rgb(255, 51, 0);
+    color: #fff;
+}
+
+/* ANIMATIONS */
+.faded {
+    animation-duration: 2s;
+    animation-name: fadeout;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+  
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
