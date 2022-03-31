@@ -14,8 +14,7 @@ def home_page():
 def new_game():
     """Generate new boggle board and store it in session"""
     
-    if 'times_played' not in session:
-        session['times_played'] = 0
+    
 
     if 'high_score' not in session:
         session['high_score'] = 0
@@ -47,6 +46,9 @@ def game_over():
     high_score = session['high_score']
 
     response = {"result": high_score}
+
+    if 'times_played' not in session:
+        session['times_played'] = 0
     
     plays = session['times_played']
     plays += 1

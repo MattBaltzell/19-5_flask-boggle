@@ -5,7 +5,7 @@ from boggle import Boggle
 
 
 class FlaskTests(TestCase):
-
+    
     # TODO -- write tests for every view function / feature!
     def test_home_page(self):
         with app.test_client() as client:
@@ -20,9 +20,10 @@ class FlaskTests(TestCase):
             resp = client.get('/new-game')
             html = resp.get_data(as_text=True)
 
+            self.assertEqual(resp.status_code, 302)
+            self.assertEqual(resp.location, 'http://localhost/play')
             self.assertIn('boggle_board',session)
             self.assertEqual(session['high_score'], 0)
-            self.assertEqual(session['times_played'], 0)
             
 
     def test_play_game(self):
@@ -43,7 +44,13 @@ class FlaskTests(TestCase):
 
     def test_game_over(self):
         with app.test_client() as client:
-            resp = client.get('/game-over')
+            resp = client.post('/game-over', data={'score': '0'})
             html = resp.get_data(as_text=True)
 
-            self.assertEqual(resp.status_code, 200)
+           
+
+    def test_game_over_session(self):
+        with app.test_client() as client:
+            resp = client.get('/game-over')
+
+            self.assertEqual(session['times_played', 1])
