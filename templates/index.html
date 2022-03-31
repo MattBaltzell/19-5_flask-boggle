@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/app.css">
-    <title>Boggle Game!</title>
-</head>
-<body>
-    <main class="content">
-        <h1>Boggle!</h1>
-        <p id="feedback" class="fade">&nbsp</p>
-        <form action="POST" id="form">
-            <input type="text" name="word" id="word" placeholder="Type a guess">
-            <button class="btn btn__submit">Submit</button>
-        </form>
-        <table id="board" >
-        {% for row in session['boggle_board'] %}
-            <tr class="board__row">
-            {% for letter in row %}
-                <td class="board__letter">{{letter}}</td>
-            {% endfor %}
-            </tr>
-        {% endfor %}
-        </table>
-        <a href="/" class="btn">New Game</a>
-    </main>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/static/app.js"></script>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %}Play Boggle!{% endblock %}
+{% block content %}
+<div class="centered">
+    <h1 class="heading__huge">Let's Play<br><span>Boggle!</span></h1>
+    <div class="instructions">
+        <p class="instructions__p">To play, find connecting letters in the puzzle that form words. You cannot use the same letter twice in a single word. In this game, ONLY SINGULAR WORDS COUNT! So pay attention! Good luck!</p>
+        <a href="/new-game" class="btn btn--yellow">Start Game!</a>
+    </div>
+</div>
+{% endblock %}

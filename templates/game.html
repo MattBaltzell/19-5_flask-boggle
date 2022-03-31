@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Boggle!{% endblock %}
+{% block header %}
+<nav class="nav">
+    <h1>Boggle!</h1>
+    <p>High Score: <span id='high-score'>{{session['high_score']}}</span></p>
+</nav>
+<div id="scoreboard">
+    <p id="score">0</p>
+    <p>SCORE</p>
+</div>
+{% endblock %}
+{% block content %}
+
+<p id="feedback" class="fade">&nbsp</p>
+<form action="POST" id="form">
+    <input type="text" name="word" id="word" placeholder="Type a guess" autocomplete="off" required>
+    <button class="btn btn__submit" onsubmit="getFocus()">Submit</button>
+</form>
+<table id="board" >
+    <tbody>
+    
+{% for row in session['boggle_board'] %}
+    <tr class="board__row">
+    {% for letter in row %}
+        <td class="board__letter">{{letter}}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+<tr class="hidden">
+    <td class="no-bg end-screen">
+        <p>You scored 0 points!</p>
+        <a href="/new-game" id="start" class="btn">New Game</a>
+    </td>
+</tr>
+    </tbody>
+</table>
+<p class="progressText">Get Ready</p>
+<div class="outerContainer">
+    <div class="innerBar"></div>
+</div>
+<div class="timeMarks">
+    <div>60</div>
+    <div>45</div>
+    <div>30</div>
+    <div>15</div>
+    <div>0</div>
+</div>
+{% endblock %}
