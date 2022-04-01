@@ -55,4 +55,3 @@ def game_over():
     session['times_played'] = plays
 
     return jsonify(response)
-    
