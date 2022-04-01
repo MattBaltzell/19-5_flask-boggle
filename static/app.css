@@ -21,11 +21,9 @@ body{
 }
 
 .header{
-    /* width: 100vw; */
     display:flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .nav{
@@ -76,6 +74,10 @@ h1{
     letter-spacing: -1.5px;
 }
 
+h1 a{
+    text-decoration: none;
+}
+
 .heading__huge{
     margin-left: -3rem;
     font-size: 3rem;
@@ -85,7 +87,6 @@ h1{
 }
 
 .heading__huge span{
-
     padding-left: 4rem;
     font-size: 10rem;
     color: #fff;
@@ -244,6 +245,11 @@ td{
     /* width: 140px; */
     transition: all 0.2s;
   }
+
+  #start:hover{
+      background-color: var(--color-primary);
+      border-color: var(--color-primary);
+  }
   
   
   
@@ -257,7 +263,7 @@ td{
   .progressText {
     font-size: 26px;
     font-weight: bold;
-    color: var(--color-dk);
+    color: var(--color-lt);
     text-align: center;
     margin-bottom: -10px;
     margin-top: 5px;
@@ -280,7 +286,7 @@ td{
     display: flex;
     justify-content: space-between;
     text-align: center;
-    margin-top: -3px;
+    margin-top: -16px;
   }
   
   .timeMarks div {
