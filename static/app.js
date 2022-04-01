@@ -58,7 +58,7 @@ const endScreenMsg = document.querySelector('.end-screen p')
 
 window.addEventListener('load', function () {
   playing = true;
-  let timeLeft = 19;
+  let timeLeft = 59;
 //   boardRows.forEach(el=> el.classList.remove('hidden'))
 
   startBtn.style.opacity = '0'
@@ -74,17 +74,17 @@ window.addEventListener('load', function () {
       endScreenMsg.textContent = `You scored ${score} points!`
       startBtn.style.opacity = '1'
       playing = false;
-      setHighScore(score)
+      setHighScore()
       return;
     }
     timeLeft--;
   }, 1000);
 
-  innerBar.animate({ width: "100%" }, 20000, "linear");
+  innerBar.animate({ width: "100%" }, 60000, "linear");
 });
 
-async function setHighScore(gameScore){
-  let res = await axios.post('/game-over',{score: gameScore})
+async function setHighScore(){
+  let res = await axios.post('/game-over',{score})
   let highScore = res.data.result
   document.querySelector('#high-score').textContent = highScore;
 }
