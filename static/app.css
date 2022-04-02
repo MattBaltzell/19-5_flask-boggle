@@ -212,16 +212,15 @@ td{
 }
 
 #feedback.red{
-    background-color: rgb(255, 51, 0);
-    color: #fff;
+    color: rgb(216, 0, 29);
 }
 
 /* ANIMATIONS */
 .faded {
-    animation-duration: 1.5s;
+    animation-duration: 1.75s;
     animation-name: fadeout;
     animation-iteration-count: 1;
-    /* animation-fill-mode: forwards; */
+    animation-fill-mode: forwards;
   }
   
   @keyframes fadeout {
