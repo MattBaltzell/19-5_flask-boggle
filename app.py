@@ -3,6 +3,8 @@ from boggle import Boggle
 
 boggle_game = Boggle()
 
+guesses = []
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "zelly123"
 
@@ -31,10 +33,11 @@ def play_game():
 def check_word():
     word = request.args['word']
     board = session['boggle_board']
-
-    response = {"result": boggle_game.check_valid_word(board, word)}
+    response = {"result":"already-found"} if word in guesses else {"result": boggle_game.check_valid_word(board, word)}
+    guesses.append(word)    
 
     return jsonify(response)
+
 
 @app.route('/game-over', methods=['POST'] )
 def game_over():
