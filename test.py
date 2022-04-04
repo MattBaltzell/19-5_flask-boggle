@@ -82,3 +82,11 @@ class FlaskTests(TestCase):
         response =self.client.get('/check-word?word=sippindasizzurp')
         self.assertEqual(response.json['result'], 'not-word')  
 
+
+    # def test_game_over(self):
+    #     with app.test_client() as client:
+    #         resp = client.post('/game-over', data={'result': 0})
+    #         html = resp.get_data(as_text=True)
+
+    #         self.assertEqual(resp.status_code, 200) 
+    #         self.assertEqual(resp.json['result'], 0)
